@@ -20,7 +20,7 @@ class HomePresenter {
         String question = element['question'];
         String type = element['type'];
         String correct_answer = element['correct_answer'];
-        String incorrect_answers = element['incorrect_answers'].toString();
+        List<String>  incorrect_answers = element['incorrect_answers'].cast<String>();;
         return Question(category,difficulty,question,type,correct_answer,incorrect_answers);
       }).toList();
       _view.showQuestions(questions);
