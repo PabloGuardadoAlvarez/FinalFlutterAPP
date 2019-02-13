@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class SettingsScreen extends StatefulWidget {
 
   final Question question;
-  List<String> datos = [];
 
   SettingsScreen(this.question);
 
@@ -12,10 +11,11 @@ class SettingsScreen extends StatefulWidget {
   _SettingsScreenState createState() => _SettingsScreenState();
 }
  bool correct = false;
+final List<String>  all = [];
 
 check(String notsure, String answer){
 
-  if(notsure == answer){
+  if(notsure.contains(answer)){
     correct = true;
     print("correcto");
   }
@@ -48,7 +48,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 return GestureDetector(
                   onTap: check(widget.question.incorrect_answers[index],widget.question.correct_answer),
                   child: Container(
-                    color: Colors.amberAccent,
+                      decoration: new BoxDecoration(
+                          border: new Border.all(color: Colors.black)
+                      ),
                       alignment: Alignment(0.0, 0.0),
                     margin: const EdgeInsets.only(top: 130),
                       child: new Text(
